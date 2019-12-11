@@ -9,7 +9,7 @@ const maesSchema = new mongoose.Schema({
     dataNascimento: { type: Date },
     estadoCivil: { type: String },
     telefone: { type: Number },
-    habitos: [{
+    habitos: { type: String},/*[{
         _id: false,
         vegetariana: { type: Boolean },
         vegana: { Type: Boolean },
@@ -17,8 +17,8 @@ const maesSchema = new mongoose.Schema({
         naturalista: { Type: Boolean },
         fumante: { Type: Boolean },
         alcoolica: { Type: Boolean }
-    }],
-    disponivel: { type: Boolean },
+    }],*/
+        disponivel: { type: Boolean },
     filhos: [{
         _id: false,
         nome: { type: String },
@@ -27,9 +27,9 @@ const maesSchema = new mongoose.Schema({
 
 },
 
-    {
-        versionKey: false//para nao ter versionamento
-    })
+{
+    versionKey: false//para nao ter versionamento
+})
 
 const Maes = mongoose.model('Maes', maesSchema);//tem um model no mongoouse e ele é composto pelo Maes e sera consumido assim
 module.exports = Maes;

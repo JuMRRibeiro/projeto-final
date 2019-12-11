@@ -76,7 +76,7 @@ exports.updateHabitos = (req, res) => {
     })
 }
 
-exports.postHabitos = (req, res) => {//exporta a rota para a route consumir
+/*exports.postHabitos = (req, res) => {//exporta a rota para a route consumir
   let habitos = new Habitos(req.body);// pega as informacoes do body de acordo com o schema
 
   habito.save(function (err) {//funcao de salvar se estiver tudo ok conforme o schema
@@ -92,7 +92,7 @@ exports.postHabitos = (req, res) => {//exporta a rota para a route consumir
   } catch (e) {
     res.status(500).send({message: 'Falha ao carregar os habitos!'});
   
-}}*/
+}}
 
 exports.getHabito = (req, res) => {
   Maes.find({"habitos": true}, (function (err, habitos) {
@@ -105,4 +105,4 @@ exports.getHabito = (req, res) => {
     return res.status(200).send(habitoCompativel)
   })
   )
-};
+};*/

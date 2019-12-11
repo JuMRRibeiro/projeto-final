@@ -5,15 +5,15 @@ const controller = require("../controllers/maesController")
 
 router.get("/", controller.get)
 router.get("/disponiveis", controller.getDisponibilidade)
-router.get("/:habitos", controller.getHabito)
+//router.get("/:habitos", controller.getHabito)
 
 router.post("/", controller.post)
-router.post("/:habitos", controller.postHabitos)
+//router.post("/:habitos", controller.postHabitos)
 
 router.delete("/:id", controller.deletarMae)
 
 router.put("/", controller.updateMae)
-router.put("/:habitos", controller.updateHabitos)
+//router.put("/:habitos", controller.updateHabitos)
 
 
 /**

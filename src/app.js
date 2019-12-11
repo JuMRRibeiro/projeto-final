@@ -31,9 +31,9 @@ app.use(function (req, res, next) {
 })
 app.use(express.static("public"));
  
-// app.get("/maes", function(req, res) {
-//   res.json({status: "Você esta logada!"});
-//   });
+ //app.get("/maes", function(req, res) {
+  //res.json({status: "Você esta logada!"});
+  //});
    
 //   app.post("/mae", function(req, res) {
 //   res.json({status: "Cadastrada!"});
