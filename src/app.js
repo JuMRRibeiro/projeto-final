@@ -5,7 +5,7 @@ const app = express()
 
 
 
-mongoose.connect('mongodb://localhost:27017/maes', { useNewUrlParser: true, useFindAndModify: false,
+mongoose.connect('mongodb+srv://Rep:U8fl7XTEx71SnZoq@cluster0-xelhd.mongodb.net/maes', { useNewUrlParser: true, useFindAndModify: false,
 useCreateIndex: true, useUnifiedTopology: true });
 
 
