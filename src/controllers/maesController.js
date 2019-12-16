@@ -5,13 +5,13 @@ exports.post = (req, res) => {
 
   mae.save(function (err) {
     if (err) res.status(500).send(err);
-    res.status(201).send({ status: true, message: ' Mãe incluido com sucesso' });
+    res.status(201).send({ status: true, message: ' Mãe incluida com sucesso' });
   })
 }
 
 
 exports.get = (req, res) => {
-  
+
   Maes.find(function (err, maes) {
     if (err) {
       res.status(500).send(err);
@@ -30,23 +30,15 @@ exports.getDisponibilidade = (req, res) => {
   )
 };
 
+exports.getNome = (req, res) => {
+  Maes.find({ "nome": req.params.nome }, function (err, maesNome) {
+    if (err) res.status(500).send(err);
+    res.status(200).send(maesNome);
+   
+  }
+)
+}
 
-exports.getMaes = (req, res) => {
-
-  const id = req.params.id;
-
-  Maes.findById(id, function (err, mae) {
-
-    if (err) return res.status(500).send(err);
-
-    if (!mae) {
-      return res.status(200).send({ message: "Infelizmente não localizei essa Mãe!" });
-    }
-
-    res.status(200).send(mae)
-  })
-
-};
 
 exports.deletarMae = (req, res) => {
 
@@ -60,35 +52,24 @@ exports.deletarMae = (req, res) => {
       return res.status(200).send({ message: "Infelizmente não localizei essa Mãe!" });
     }
 
-    Maes.deleteOne({"_id": id}, function (err) {
+    Maes.deleteOne({ "_id": id }, function (err) {
       if (!err) {
         return res.status(200).send({ message: "Mãe removida com sucesso!" })
       }
 
     })
   })
-}
+},
 
-exports.updateMae = (req, res) => {
+  exports.updateMae = (req, res) => {
 
-  const id = req.params.id;
-  console.log('id',id)
-  console.log("passei aqui")
-  const maes = Maes.findById(id).exec(function (err, mae) {
-    console.log('filhos antes',mae)
-    const filhos = {...mae.filhos, ...req.body}
-    console.log('filhos',filhos)
-    Maes.findByIdAndUpdate(id,
-      { $push: { 'filhos' : req.body.filhos } },
-      function (err) {
-        console.log("passei novamente")
-        if (err) return res.status(500).send(err);
-        res.status(200).send({ message: "Filhos atualizados com sucesso!" });
-      })
-  });
+    const id = req.params.id;
+      Maes.findByIdAndUpdate(id,
+        { $push: { 'filhos': req.body.filhos } },
+        function (err) {
+          if (err) return res.status(500).send(err);
+          res.status(200).send({ message: "Filhos atualizados com sucesso!" });
+        })
+
+  }
   
-}
-
-
-
-
